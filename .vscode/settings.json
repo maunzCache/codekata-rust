@@ -1,0 +1,3 @@
+{
+    "rust-analyzer.linkedProjects": ["mexican-wave/Cargo.toml", "missing-letter/Cargo.toml", "who-likes-it/Cargo.toml"]
+}
