@@ -40,14 +40,19 @@ fn find_missing_letter(chars: &[char]) -> char {
     return char::from_u32(missing_letter).expect("Kaputt");
 }
 
-#[test]
-fn it_has_lower_case_letters_works() {
-    assert_eq!(find_missing_letter(&['a', 'b', 'c', 'd', 'f']), 'e');
-}
+#[cfg(test)]
+mod tests {
+    use super::find_missing_letter;
 
-#[test]
-fn it_has_upper_case_letters_works() {
-    assert_eq!(find_missing_letter(&['O', 'Q', 'R', 'S']), 'P');
-}
+    #[test]
+    fn it_has_lower_case_letters_works() {
+        assert_eq!(find_missing_letter(&['a', 'b', 'c', 'd', 'f']), 'e');
+    }
 
-// TODO: Create smoke test which randomly tests every letter in the alphabet :D
+    #[test]
+    fn it_has_upper_case_letters_works() {
+        assert_eq!(find_missing_letter(&['O', 'Q', 'R', 'S']), 'P');
+    }
+
+    // TODO: Create smoke test which randomly tests every letter in the alphabet :D
+}

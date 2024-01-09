@@ -43,7 +43,6 @@ fn likes(names: &[&str]) -> String {
 }
 
 // TODO: Add smoke test for all sizes within usize:MAX
-// TODO: Refactor all other katas to use a module to wrap tests
 // TODO: Refactor these tests to look like the other katas
 #[cfg(test)]
 mod tests {

@@ -2,7 +2,7 @@ use std::env;
 
 fn main() {
     let mut args: Vec<String> = env::args().collect();
-    let output: Vec<String> = wave(args.pop().expect("Expected String").to_lowercase());
+    let output: Vec<String> = mexican_wave(args.pop().expect("Expected String").to_lowercase());
     println!("{:?}", output);
 }
 
@@ -15,7 +15,7 @@ fn main() {
 // 2. If the character in the string is whitespace then pass over it as if it was an empty seat
 
 // This is the naive solution from 05.01.2024
-fn wave(input: String) -> Vec<String> {
+fn mexican_wave(input: String) -> Vec<String> {
     let mut wave: Vec<String> = Vec::new();
     let input_len: usize = input.len();
 
@@ -46,48 +46,53 @@ fn wave(input: String) -> Vec<String> {
     return wave;
 }
 
-#[test]
-fn it_has_empty_input_works() {
-    let actual_result: Vec<String> = wave(String::from(""));
-    let expected_result: Vec<String> = Vec::<String>::new();
+#[cfg(test)]
+mod tests {
+    use super::mexican_wave;
 
-    assert_eq!(actual_result, expected_result);
-}
+    #[test]
+    fn it_has_empty_input_works() {
+        let actual_result: Vec<String> = mexican_wave(String::from(""));
+        let expected_result: Vec<String> = Vec::<String>::new();
 
-#[test]
-fn it_has_single_character_works() {
-    let actual_result: Vec<String> = wave(String::from("a"));
-    let expected_result: Vec<String> = vec![String::from("A")];
+        assert_eq!(actual_result, expected_result);
+    }
 
-    assert_eq!(actual_result, expected_result);
-}
+    #[test]
+    fn it_has_single_character_works() {
+        let actual_result: Vec<String> = mexican_wave(String::from("a"));
+        let expected_result: Vec<String> = vec![String::from("A")];
 
-#[test]
-fn it_has_single_word_works() {
-    let actual_result: Vec<String> = wave(String::from("hello"));
-    assert_eq!(
-        actual_result,
-        vec!["Hello", "hEllo", "heLlo", "helLo", "hellO"]
-    );
-}
+        assert_eq!(actual_result, expected_result);
+    }
 
-#[test]
-fn it_has_separated_words_by_space_works() {
-    let actual_result: Vec<String> = wave(String::from("hello world"));
-    assert_eq!(
-        actual_result,
-        vec![
-            "Hello world",
-            "hEllo world",
-            "heLlo world",
-            "helLo world",
-            "hellO world",
-            "hello world",
-            "hello World",
-            "hello wOrld",
-            "hello woRld",
-            "hello worLd",
-            "hello worlD"
-        ]
-    );
+    #[test]
+    fn it_has_single_word_works() {
+        let actual_result: Vec<String> = mexican_wave(String::from("hello"));
+        assert_eq!(
+            actual_result,
+            vec!["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+        );
+    }
+
+    #[test]
+    fn it_has_separated_words_by_space_works() {
+        let actual_result: Vec<String> = mexican_wave(String::from("hello world"));
+        assert_eq!(
+            actual_result,
+            vec![
+                "Hello world",
+                "hEllo world",
+                "heLlo world",
+                "helLo world",
+                "hellO world",
+                "hello world",
+                "hello World",
+                "hello wOrld",
+                "hello woRld",
+                "hello worLd",
+                "hello worlD"
+            ]
+        );
+    }
 }
