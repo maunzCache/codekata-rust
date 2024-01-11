@@ -13,9 +13,23 @@ fn main() {
 //    length can be even shorter, in which case the last beggars will of course take nothing (0).
 // 2. Do not modify the input array.
 
-// This is the naive solution from ??.2024
+// This is the naive solution from 11.01.2024
 fn english_beggars(values: &[u32], n: usize) -> Vec<u32> {
-    todo!();
+    let mut cashout: Vec<u32> = vec![];
+
+    if n > 0 {
+        for _index in 0..n {
+            cashout.push(0)
+        }
+
+        let mut counter = 0;
+        for index in 0..values.len() {
+            cashout[counter] += values[index];
+            counter = (counter + 1) % n;
+        }
+    }
+
+    return cashout;
 }
 
 #[cfg(test)]
