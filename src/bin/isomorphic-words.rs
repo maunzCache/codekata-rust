@@ -1,7 +1,9 @@
 use std::collections::HashMap;
 
 fn main() {
-    println!("Hello, world!");
+    // TODO: Allow input from shell
+    let output: bool = isomorphic_words("CBAABC", "DEFFED");
+    println!("{:?}", output);
 }
 
 // https://www.codewars.com/kata/59dbab4d7997cb350000007f

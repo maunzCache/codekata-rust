@@ -1,5 +1,7 @@
 fn main() {
-    println!("Hello, world!");
+    // TODO: Allow input from shell
+    let output: Vec<u32> = english_beggars(&[1, 2, 3, 4, 5], 1);
+    println!("{:?}", output);
 }
 
 // https://www.codewars.com/kata/59590976838112bfea0000fa

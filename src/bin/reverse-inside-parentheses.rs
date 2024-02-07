@@ -1,5 +1,7 @@
 fn main() {
-    println!("Hello, world!");
+    // TODO: Allow input from shell
+    let output: String = reverse_inside_parentheses("h(el)lo");
+    println!("{:?}", output);
 }
 
 // https://www.codewars.com/kata/5e07b5c55654a900230f0229

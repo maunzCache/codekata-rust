@@ -1,5 +1,7 @@
 fn main() {
-    println!("Hello, world!");
+    // TODO: Allow input from shell
+    let output: String = who_likes_it(&["Jacob", "Alex"]);
+    println!("{:?}", output);
 }
 
 // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/rust
@@ -17,7 +19,7 @@ fn main() {
 // Note: For 4 or more names, the number in "and 2 others" simply increases.
 
 // This is the naive solution from 08.01.2024
-fn likes(names: &[&str]) -> String {
+fn who_likes_it(names: &[&str]) -> String {
     let entries = names.len();
 
     match entries {
@@ -46,23 +48,23 @@ fn likes(names: &[&str]) -> String {
 // TODO: Refactor these tests to look like the other katas
 #[cfg(test)]
 mod tests {
-    use super::likes;
+    use super::who_likes_it;
 
     #[test]
     fn example_tests() {
-        assert_eq!(likes(&[]), "no one likes this");
-        assert_eq!(likes(&["Peter"]), "Peter likes this");
-        assert_eq!(likes(&["Jacob", "Alex"]), "Jacob and Alex like this");
+        assert_eq!(who_likes_it(&[]), "no one likes this");
+        assert_eq!(who_likes_it(&["Peter"]), "Peter likes this");
+        assert_eq!(who_likes_it(&["Jacob", "Alex"]), "Jacob and Alex like this");
         assert_eq!(
-            likes(&["Max", "John", "Mark"]),
+            who_likes_it(&["Max", "John", "Mark"]),
             "Max, John and Mark like this"
         );
         assert_eq!(
-            likes(&["Alex", "Jacob", "Mark", "Max"]),
+            who_likes_it(&["Alex", "Jacob", "Mark", "Max"]),
             "Alex, Jacob and 2 others like this"
         );
         assert_eq!(
-            likes(&["Bobby", "Alex", "Jacob", "Mark", "Max"]),
+            who_likes_it(&["Bobby", "Alex", "Jacob", "Mark", "Max"]),
             "Bobby, Alex and 3 others like this"
         );
     }
