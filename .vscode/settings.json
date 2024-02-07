@@ -1,10 +1,5 @@
 {
     "rust-analyzer.linkedProjects": [
-        "english-beggars/Cargo.toml",
-        "isomorphic-words/Cargo.toml",
-        "mexican-wave/Cargo.toml",
-        "missing-letter/Cargo.toml",
-        "reverse-inside-parentheses/Cargo.toml",
-        "who-likes-it/Cargo.toml"
+        "Cargo.toml",
     ]
 }
